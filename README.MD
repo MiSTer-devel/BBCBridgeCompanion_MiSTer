@@ -55,7 +55,7 @@ A licencing deal was negotiated with BBC Enterprises Ltd. to use the logo by Ton
 The electronics, cartridges and embedded firmware were also all developed by Heber Ltd at the time.
 
 ## Known issues / to-do
-- The 2nd menu option is selected on game load - the correct behaviour as per original hardware.  Possibly an issue with the Z80 PIO implementation
+- The 2nd menu option is selected on game load, instead of the 1st.  Possibly an issue with the Z80 PIO implementation?
 - If the Forced Scandoubler INI option is active then a reset / game load on FPGA will occasionally cause graphical oddities.  Reset/re-load until the issue goes away!
 
 ## Original schematic
