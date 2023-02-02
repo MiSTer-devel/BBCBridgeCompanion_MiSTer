@@ -177,6 +177,11 @@ module vdp18_hor_vert
                     vsync_n_o <= 1'b0;
                   else if (cnt_vert_q == 247)
                     vsync_n_o <= 1'b1;
+
+                  if (cnt_vert_q == 240)
+                    vblank_q <= 1'b1;
+                  else if (cnt_vert_q == first_line_s + 14)
+                    vblank_q <= 1'b0;
                 end
               else
                 begin
