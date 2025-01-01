@@ -219,6 +219,8 @@ localparam CONF_STR = {
 	"F1,BIN,Load custom cartridge;",
 	"-;",
 	"R0,Reset;",
+	"J1,Pass,NT,Dbl,Rdbl,Start,Back,Play/Yes,Play/No",
+	"Jn,X,Y,A,B,R,L,Z,C;",
 	"V,v",`BUILD_DATE
 };
 
@@ -329,18 +331,18 @@ always @(posedge clk_sys) begin
 end
 
 wire [11:0] inputs = {
-	btn_play_no,
-	btn_start,
-	btn_diamonds_down,
-	btn_dbl,
-	btn_back,
-	btn_play_yes,
-	btn_hearts_up,
-	btn_NT,
-	btn_rdbl,
-	btn_clubs,
-	btn_spades,
-	btn_pass
+	btn_play_no | joystick_0[10], // Keyboard Left Alt / Joystick Button 8 (default C)
+	btn_start | joystick_0[8], // Keyboard 1 / Joystick Button 5 (default R)
+	btn_diamonds_down | joystick_0[2], // Keyboard C / Joystick Down,
+	btn_dbl | joystick_0[6], // Keyboard D / Joystick Button 3 (default A)
+	btn_back | joystick_0[9], // Keyboard Backspace / Joystick Button 6 (default L)
+	btn_play_yes | joystick_0[8], // Keyboard Left Control / Joystick Button 7 (default Z)
+	btn_hearts_up | joystick_0[3], // Keyboard X / Joystick Up,
+	btn_NT | joystick_0[5], // Keyboard S / Joystick Button 2 (default Y)
+	btn_rdbl | joystick_0[7], // Keyboard F / Joystick Button 4 (default B)
+	btn_clubs | joystick_0[0], // Keyboard V / Joystick Right
+	btn_spades | joystick_0[1], // Keyboard Z / Joystick Left
+	btn_pass | joystick_0[4] // Keyboard A / Joystick Button 1 (default X)
 };
 
 ///////////////////   VIDEO   ////////////////////
